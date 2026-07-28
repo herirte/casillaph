@@ -1,1 +1,177 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>cotizador filipino ♡</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: 'Quicksand', sans-serif;
+      background: #fef9f1;
+      color: #536047;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      background-image: url('https://i.imgur.com/uIbgwjy.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      background-color: rgba(254, 249, 241, 0.93);
+      padding: 40px;
+      border-radius: 25px;
+      max-width: 500px;
+      width: 90%;
+      box-sizing: border-box;
+
+      box-shadow: 0 6px 15px rgba(120, 120, 80, 0.15);
+      border: 3px solid #cdd89f;
+    }
+
+    img {
+      max-width: 280px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    input, button {
+      padding: 12px;
+      font-size: 18px;
+      margin: 10px 5px;
+      border-radius: 12px;
+      border: 2px solid #a8c6e5;
+      font-family: inherit;
+    }
+
+    input {
+      background-color: white;
+      color: #536047;
+      outline: none;
+    }
+
+    button {
+      background-color: #a8c6e5;
+      color: #40536a;
+      cursor: pointer;
+      border: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: #cdd89f;
+      transform: scale(1.03);
+    }
+
+    .resultado {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #536047;
+    }
+
+    #aclaracion {
+      font-size: 14px;
+      color: #7b806d;
+    }
+
+    @media (max-width: 768px) {
+
+      .container {
+        padding: 25px;
+      }
+
+      input, button {
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      .resultado {
+        font-size: 20px;
+      }
+
+      #aclaracion {
+        font-size: 13px;
+      }
+
+      img {
+        max-width: 85%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <img src="https://i.imgur.com/8CZhVOu.png" alt="logo" />
+
+    <p>cotiza tus links acá ( ˶ᵔ ᵕ ᵔ˶ ) ♡</p>
+
+    <input type="number" id="php" placeholder="Ej: 150">
+
+    <button onclick="calcular()">Cotizar</button>
+
+
+    <div class="resultado" id="resultado"></div>
+
+    <p id="aclaracion"></p>
+
+  </div>
+
+
+<script>
+
+function calcular() {
+
+  const tasaCambio = 32;
+
+  const php = parseFloat(document.getElementById("php").value);
+
+
+  if (isNaN(php)) {
+
+    document.getElementById("resultado").innerText =
+    "por favor ingresá un número válido ♡";
+
+    document.getElementById("aclaracion").innerText = "";
+
+    return;
+
+  }
+
+
+  const ars = php * tasaCambio;
+
+
+  document.getElementById("resultado").innerText =
+  `≈ $${ars.toFixed(0)} ARS`;
+
+
+  document.getElementById("aclaracion").innerText =
+  "precio sin fees! ♡";
+
+}
+
+</script>
+
+
+</body>
+</html>
